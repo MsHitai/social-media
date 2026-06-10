@@ -1,0 +1,664 @@
+{
+  "info": {
+    "_postman_id": "c6f4dd8c-fb6d-42bc-b820-cc579d89412b",
+    "name": "SocialMedia",
+    "description": "Todo Application requests",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "26967118"
+  },
+  "item": [
+    {
+      "name": "Логин",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"username\":\"Ivanushka\",\r\n    \"password\":\"Ivanushka\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/login",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Все юзеры",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0Iiwicm9sZXMiOlsiUk9MRV9VU0VSIl0sImV4cCI6MTY5MjI5NDMyNiwiaWF0IjoxNjkyMjkyNTI2fQ.tW5U2NrDWPD09b4NQgZWH0uNMSoQs45vPQzZ82XEvAo",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/users",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "users"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Регистрация",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"username\":\"Peter\",\r\n    \"email\":\"peter@test.ru\",\r\n    \"password\":\"petek\",\r\n    \"confirmPassword\":\"petek\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/registration",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "registration"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Еще регистрация",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"username\":\"test 2 \",\r\n    \"email\":\"test2@test.ru\",\r\n    \"password\":\"test2\",\r\n    \"confirmPassword\":\"test2\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/registration",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "registration"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Добавить пост",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0Iiwicm9sZXMiOlsiUk9MRV9VU0VSIl0sImV4cCI6MTY5MjM5NTk4NiwiaWF0IjoxNjkyMzk0MTg2fQ.Pg5Ls3OCIN613BE001jF6XtUEJSWCk-CNcdvEwGy0sY",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "X-SMedia-User-Id",
+            "value": "1",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "image",
+              "type": "file",
+              "src": "/C:/Users/mmala/Pictures/2023-07-24_13-01-49.png"
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://localhost:8080/posts?description=testDescription&header=header",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "posts"
+          ],
+          "query": [
+            {
+              "key": "description",
+              "value": "testDescription"
+            },
+            {
+              "key": "header",
+              "value": "header"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Все посты",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0Iiwicm9sZXMiOlsiUk9MRV9VU0VSIl0sImV4cCI6MTY5MjI3MzIzOCwiaWF0IjoxNjkyMjcxNDM4fQ.hgKaA5hz7OD8zkKwkGhYAG0-6VgBa2G6UhPWNDfHX38",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/posts",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "posts"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Обновить пост",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0Iiwicm9sZXMiOlsiUk9MRV9VU0VSIl0sImV4cCI6MTY5MjI2NzcxNiwiaWF0IjoxNjkyMjY1OTE2fQ.F8Cq0iCIFl2QyZArTFytGgTiZt2K3bp8Eut4wQ_ungg",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PUT",
+        "header": [
+          {
+            "key": "X-SMedia-User-Id",
+            "value": "1",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "image",
+              "type": "file",
+              "src": "/C:/Users/mmala/Pictures/2023-07-24_13-01-49.png"
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://localhost:8080/posts/1?description=newDescription",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "posts",
+            "1"
+          ],
+          "query": [
+            {
+              "key": "description",
+              "value": "newDescription"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Пост по ид",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJJdmFudXNoa2EiLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiZXhwIjoxNjk3NTM4MDcwLCJpYXQiOjE2OTc1MzYyNzB9.0K4jNgnk0FRhqJEAFQ-_eynKz8m34NKQJWVnVH9gp5Y",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-SMedia-User-Id",
+            "value": "2",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8080/posts/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "posts",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Удалить пост",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0Iiwicm9sZXMiOlsiUk9MRV9VU0VSIl0sImV4cCI6MTY5MjI2NzcxNiwiaWF0IjoxNjkyMjY1OTE2fQ.F8Cq0iCIFl2QyZArTFytGgTiZt2K3bp8Eut4wQ_ungg",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "X-SMedia-User-Id",
+            "value": "1",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8080/posts/2",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "posts",
+            "2"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Отправить запрос на дружбу",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJJdmFudXNoa2EiLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiZXhwIjoxNjk3NTM4MDcwLCJpYXQiOjE2OTc1MzYyNzB9.0K4jNgnk0FRhqJEAFQ-_eynKz8m34NKQJWVnVH9gp5Y",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PUT",
+        "header": [
+          {
+            "key": "X-SMedia-User-Id",
+            "value": "4",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8080/friends/2",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "friends",
+            "2"
+          ],
+          "query": [
+            {
+              "key": "",
+              "value": "",
+              "disabled": true
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Все друзья",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJJdmFudXNoa2EiLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiZXhwIjoxNjk3NTM4MDcwLCJpYXQiOjE2OTc1MzYyNzB9.0K4jNgnk0FRhqJEAFQ-_eynKz8m34NKQJWVnVH9gp5Y",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-SMedia-User-Id",
+            "value": "4",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8080/friends",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "friends"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Апрув дружбы",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJJdmFudXNoa2EiLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiZXhwIjoxNjk3NTM4MDcwLCJpYXQiOjE2OTc1MzYyNzB9.0K4jNgnk0FRhqJEAFQ-_eynKz8m34NKQJWVnVH9gp5Y",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PUT",
+        "header": [
+          {
+            "key": "X-SMedia-User-Id",
+            "value": "2",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8080/friends?senderId=4&approved=true",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "friends"
+          ],
+          "query": [
+            {
+              "key": "senderId",
+              "value": "4"
+            },
+            {
+              "key": "approved",
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Удалить друга",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0Iiwicm9sZXMiOlsiUk9MRV9VU0VSIl0sImV4cCI6MTY5MjMwMDY5OCwiaWF0IjoxNjkyMjk4ODk4fQ.HQzKFOw8r1C_bHQQdB0JBeU2RDHUv7YunUZIxJhMgV4",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "X-SMedia-User-Id",
+            "value": "1",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8080/friends/2",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "friends",
+            "2"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Отправить заявку на друга",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0Iiwicm9sZXMiOlsiUk9MRV9VU0VSIl0sImV4cCI6MTY5MjMwMDY5OCwiaWF0IjoxNjkyMjk4ODk4fQ.HQzKFOw8r1C_bHQQdB0JBeU2RDHUv7YunUZIxJhMgV4",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PUT",
+        "header": [
+          {
+            "key": "X-SMedia-User-Id",
+            "value": "1",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8080/friends/2",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "friends",
+            "2"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Обновить юзера",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJJdmFudXNoa2EiLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiZXhwIjoxNjk3NTM4MDcwLCJpYXQiOjE2OTc1MzYyNzB9.0K4jNgnk0FRhqJEAFQ-_eynKz8m34NKQJWVnVH9gp5Y",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"username\": \"Ivanushka\",\r\n    \"email\": \"ivan-boban@test.ru\",\r\n    \"password\": \"Ivanushka\",\r\n    \"confirmPassword\": \"Ivanushka\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/users/4",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "users",
+            "4"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Обновить юзера",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0Iiwicm9sZXMiOlsiUk9MRV9VU0VSIl0sImV4cCI6MTY5MjQ2MjUxNCwiaWF0IjoxNjkyNDYwNzE0fQ.L9nHJf_BTGaPyDy--FTrvo8VIs8PeWsNl4t_5KfjdzI",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"id\":2,\r\n    \"username\": \"newUsername\",\r\n    \"email\": \"test@test.ru\",\r\n    \"password\":\"test\",\r\n    \"confirmPassword\":\"test\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/users/2",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "users",
+            "2"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Регистрация автора",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0IDIgIiwicm9sZXMiOlsiUk9MRV9VU0VSIl0sImV4cCI6MTY5MzQyNDg1NSwiaWF0IjoxNjkzNDIzMDU1fQ.gCX_DQ7SYoalLJ8L0ChIBUMf97zSCDd8sobxXG-A7jE",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"username\":\"test 2 \",\r\n    \"email\":\"test2@test.ru\",\r\n    \"password\":\"test2\",\r\n    \"confirmPassword\":\"test2\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/registration/author",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "registration",
+            "author"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
